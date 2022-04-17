@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity(), OnListItemClickedListener, OnDataChang
     private lateinit var addNewPlaceButton: Button
 
     private lateinit var placesRecyclerAdapter: PlaceRecyclerAdapter
+    private lateinit var reasonToVisitEditText: EditText
 
     private val placesListModel: PlacesViewModel by lazy {
         ViewModelProvider(this).get(PlacesViewModel::class.java)
@@ -35,6 +36,7 @@ class MainActivity : AppCompatActivity(), OnListItemClickedListener, OnDataChang
         placeListRecyclerView = findViewById(R.id.place_list)
         newPlaceEditText = findViewById(R.id.new_place_name)
         addNewPlaceButton = findViewById(R.id.add_new_place_button)
+        reasonToVisitEditText = findViewById(R.id.reason_to_visit)
 
         val places = placesListModel.getPlaces()
 
@@ -56,20 +58,23 @@ class MainActivity : AppCompatActivity(), OnListItemClickedListener, OnDataChang
     private fun addNewPlace() {
         val placeName = newPlaceEditText.text.toString()
         val name = placeName.trim()
+        val reason = reasonToVisitEditText.text.toString().trim()
         if (name.isEmpty()) {
             Toast.makeText(this, "Enter a place name", Toast.LENGTH_SHORT).show()
-        } else {
-            val place = Place(name)
-            val positionAdded = placesListModel.addNewPlace(place)
-            if (positionAdded == -1) {
-                Toast.makeText(this, "You already added that place", Toast.LENGTH_SHORT).show()
-            } else {
-                placesRecyclerAdapter.notifyItemInserted(positionAdded)
-                clearForm()
-                hideKeyboard()
-            }
         }
-    }
+        //else {
+            //val place = Place(name)
+           // val positionAdded = placesListModel.addNewPlace(place)
+        else if (reason.isEmpty()) {
+                Toast.makeText(this, "Enter reason you want to visit", Toast.LENGTH_SHORT).show()
+        } else {
+            val newPlace = Place(name, reason)
+            val positionAdded = placesListModel.addNewPlace(newPlace)
+            if (positionAdded == -1) {
+                Toast.makeText(this, getString(R.string.already_entered), Toast.LENGTH_SHORT).show()
+}
+        }
+        }
 
     override fun onListItemClicked(place: Place) {
         showMapForPlace(place)
@@ -107,6 +112,7 @@ class MainActivity : AppCompatActivity(), OnListItemClickedListener, OnDataChang
 
     private fun clearForm() {
         newPlaceEditText.text.clear()
+        reasonToVisitEditText.text.clear()
     }
 
     private fun hideKeyboard() {

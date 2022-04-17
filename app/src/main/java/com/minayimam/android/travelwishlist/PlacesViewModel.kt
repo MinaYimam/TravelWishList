@@ -6,7 +6,8 @@ import androidx.lifecycle.ViewModel
 class PlacesViewModel: ViewModel() {
 
 
-    private val placeNames = mutableListOf<Place>(Place("Addis Ababa"), Place("Hawassa, Ethiopia"), Place("Axum, Ethiopia"))
+    private val placeNames = mutableListOf<Place>(Place("Addis Ababa, Ethiopia", "Union Park"),
+        Place("Bahir dar, Ethiopia", "Abay River"), Place("Memphis, Egypt", "The pyramid"))
 
     fun getPlaces(): List<Place> {
         return placeNames

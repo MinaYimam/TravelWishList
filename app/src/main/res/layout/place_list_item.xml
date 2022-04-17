@@ -56,6 +56,18 @@
             app:tint="@color/dark_gray"
             app:srcCompat="@android:drawable/ic_dialog_map"
             android:contentDescription="@string/icon_description_show_place_in_map_application" />
+        <TextView
+            android:id="@+id/reason_to_visit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/small_spacing"
+            android:padding="@dimen/medium_spacing"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@+id/place_name"
+            app:layout_constraintEnd_toStartOf="@+id/map_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/date_place_added"
+            tools:text="Reason to Visit" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
