@@ -9,5 +9,6 @@
     <string name="icon_description_show_place_in_map_application">Show place in map application</string>
     <string name="reason_to_go">Why do you want to go there?</string>
     <string name="enter_reason">Enter reason you want to visit</string>
-    <string name="already_entered">Enter reason you want to visit</string>
+    <string name="already_entered">You entered this place, Do you wish to proceed?</string>
+
 </resources>

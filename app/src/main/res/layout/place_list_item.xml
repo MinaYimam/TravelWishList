@@ -1,21 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/medium_spacing"
-    card_view:cardCornerRadius="@dimen/card_corner_radius"
+    app:cardBackgroundColor="@color/list_item_background"
+    app:cardCornerRadius="@dimen/card_corner_radius"
     app:cardElevation="@dimen/card_elevation"
-    app:cardBackgroundColor="@color/list_item_background">
+    >
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/medium_spacing"
-        android:background="@color/list_item_background">
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/place_name"
@@ -23,12 +20,37 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/small_spacing"
             android:padding="@dimen/medium_spacing"
-            tools:text="Place Name"
-            android:textAlignment="viewStart"
+            android:textColor="@color/dark_gray"
             android:textSize="@dimen/large_text_size"
             app:layout_constraintEnd_toStartOf="@+id/map_icon"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Place Name" />
+
+        <ImageView
+            android:id="@+id/map_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/extra_large_spacing"
+            android:contentDescription="@string/showing_map_message"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@android:drawable/ic_dialog_map"
+            app:tint="@color/white" />
+
+        <TextView
+            android:id="@+id/reason_to_visit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/small_spacing"
+            android:padding="@dimen/medium_spacing"
+            android:textColor="@color/dark_gray"
+            app:layout_constraintTop_toBottomOf="@+id/place_name"
+            app:layout_constraintEnd_toStartOf="@+id/map_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/date_place_added"
+            tools:text="Reason to Visit" />
 
         <TextView
             android:id="@+id/date_place_added"
@@ -36,40 +58,13 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/small_spacing"
             android:padding="@dimen/medium_spacing"
-            tools:text="Date added"
-            android:textSize="@dimen/medium_text_size"
-            android:textAlignment="viewStart"
+            android:textColor="@color/dark_gray"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/map_icon"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/place_name" />
+            tools:text="Date Added" />
 
-        <ImageView
-            android:id="@+id/map_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/extra_large_spacing"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:tint="@color/dark_gray"
-            app:srcCompat="@android:drawable/ic_dialog_map"
-            android:contentDescription="@string/icon_description_show_place_in_map_application" />
-        <TextView
-            android:id="@+id/reason_to_visit"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/small_spacing"
-            android:padding="@dimen/medium_spacing"
-            android:textColor="@color/black"
-            app:layout_constraintTop_toBottomOf="@+id/place_name"
-            app:layout_constraintEnd_toStartOf="@+id/map_icon"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/date_place_added"
-            tools:text="Reason to Visit" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>
-
